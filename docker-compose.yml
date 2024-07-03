@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - '3300:3000'
+    networks:
+      - nesjs-network
+    environment:
+      - DATABASE_URI=${DATABASE_URI}
+    env_file:
+      - ./.env
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+networks:
+  nesjs-network:
