@@ -12,6 +12,7 @@ services:
       - nesjs-network
     environment:
       - DATABASE_URI=${DATABASE_URI}
+      - AIP_URL=${AIP_URL}
     env_file:
       - ./.env
     volumes:
